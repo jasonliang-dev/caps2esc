@@ -1,8 +1,9 @@
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 static HHOOK hHook = 0;
 
-LRESULT CALLBACK keyboardHook(int nCode, WPARAM wParam, LPARAM lParam) {
+static LRESULT CALLBACK keyboardHook(int nCode, WPARAM wParam, LPARAM lParam) {
   if (nCode != HC_ACTION) {
     return CallNextHookEx(hHook, nCode, wParam, lParam);
   }
